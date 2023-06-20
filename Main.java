@@ -3,20 +3,19 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingrese la longitud del primer lado del triángulo: ");
-        double lado1 = scanner.nextDouble();
+        System.out.print("Ingrese la cantidad de números: ");
+        int cantidadNumeros = scanner.nextInt();
 
-        System.out.println("Ingrese la longitud del segundo lado del triángulo: ");
-        double lado2 = scanner.nextDouble();
+        double[] numeros = new double[cantidadNumeros];
 
-        System.out.println("Ingrese la longitud del tercer lado del triángulo: ");
-        double lado3 = scanner.nextDouble();
+        for (int i = 0; i < cantidadNumeros; i++) {
+            System.out.print("Ingrese el número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextDouble();
+        }
 
-        CalcularArea triangulo = new CalcularArea(lado1, lado2, lado3);
-        double area = triangulo.calcularArea();
+        Promedio calculadora = new Promedio();
+        double promedio = calculadora.calcularPromedio(numeros);
 
-        String areaFormateada = String.format("%.2f", area);
-
-        System.out.println("El área del triángulo es: " + areaFormateada);
+        System.out.println("El promedio es: " + promedio);
     }
 }
